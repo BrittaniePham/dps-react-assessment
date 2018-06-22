@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { Header, Segment, Divider, Grid, Image } from 'semantic-ui-react';
-import ReactMarkDown from 'react-markdown';
 import axios from 'axios';
-import dpsLogo from '../images/dpsLogo.svg';
 
 class Home extends Component {
   state = { assignmentMarkdown: '' };
@@ -21,8 +19,8 @@ class Home extends Component {
     return(
       <Segment basic>
         <Segment basic textAlign='center'>
-          <Image style={styles.centered} size='tiny' src={dpsLogo} alt='DevPoint Studios Logo' />
-          <Header as='h1' style={styles.header}>DevPoint Studios React Assessment</Header>
+          <Image style={styles.centered} size='medium' src={'http://moneyinc.com/wp-content/uploads/2017/10/Beer.jpg'} alt='DevPoint Studios Logo' />
+          <Header as='h1' style={styles.header}>Beers & Breweries</Header>
         </Segment>
         <Grid>
           <Grid.Column computer={8} tablet={8} mobile={16}>
@@ -31,10 +29,9 @@ class Home extends Component {
                 as='h1'
                 textAlign='center'
                 style={styles.header}>
-                  Assessment Details:
+                  Beers:
               </Header>
               <Divider />
-              <ReactMarkDown source={this.state.assignmentMarkdown} />
             </Segment>
           </Grid.Column>
           <Grid.Column computer={8} tablet={8} mobile={16}>
@@ -43,15 +40,9 @@ class Home extends Component {
                 as='h1'
                 textAlign='center'
                 style={styles.header}>
-                  Assessment API Endpoints:
+                  Breweries:
               </Header>
               <Divider />
-              <iframe
-                style={styles.iframe}
-                title='Assignment README.md'
-                frameBorder={0}
-                src='http://localhost:3001/rails/info/routes'
-              />
             </Segment>
           </Grid.Column>
         </Grid>
