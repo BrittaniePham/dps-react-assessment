@@ -1,0 +1,2 @@
+friday:
+  -going through the devtools and postman to get info to display was fun to figure out. During this process, I did not know if anything I was doing was even on the right path but I guess it was because now my beers, breweries, and locations are displayed. Now I just have to figure out why I can't get the images to appear, even though I can clearly see where they are in the react devtools and postman... I assume I'm having a hard time because some of them don't have images.

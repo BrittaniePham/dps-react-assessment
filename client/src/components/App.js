@@ -8,12 +8,13 @@ import Breweries from './Breweries';
 import Locations from './Locations';
 import { Switch, Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
+import styled from 'styled-components';
 
 class App extends Component {
   
   render() {
     return (
-      <Segment style={styles.background}>
+      <AppContainer style={styles.background}>
         <NavBar />
         <Flash />
         <Switch>
@@ -23,10 +24,14 @@ class App extends Component {
           <Route exact path='/locations' component={Locations} />
           <Route component={NoMatch} />
         </Switch>
-      </Segment>
+      </AppContainer>
     );
   }
 }
+
+const AppContainer = styled.div`
+ background: linear-gradient(to bottom right, aliceblue, black);
+`
 
 const styles = {
   background: {
