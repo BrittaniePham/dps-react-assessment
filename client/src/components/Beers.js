@@ -1,13 +1,14 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Container, Header, Card, Image } from 'semantic-ui-react';
 // import ReactPaginate from 'react-paginate';
 
 class Beers extends React.Component {
   state = { beers: { entries: [] } }
 
   componentDidMount() {
-    axios.get('/api/all_beers?page=1&per_page=10')
+    axios.get('/api/all_beers?page=1&per_page=9') //?page=1&per_page=9
       .then( res => {
         this.setState({ beers: res.data }) 
       })
@@ -28,12 +29,31 @@ class Beers extends React.Component {
                 <Card.Content>
                   {beer.description}
                 </Card.Content>
-                <Button>
+                {/* <Button>
                   View Beer
-                </Button>
+                </Button> */}
+                <Link to={`/beer/${beer.name}`}>
+                  View Beer
+                </Link>
               </Card>
             ) }
           </Card.Group>
+
+          {/* pagination attempt */}
+          {/* <div className="commentBox">
+            <ReactPaginate previousLabel={"previous"}
+                          nextLabel={"next"}
+                          // breakLabel={<a href="">...</a>}
+                          // breakClassName={"break-me"}
+                          pageCount={this.state.beers.total_pages}
+                          marginPagesDisplayed={2}
+                          pageRangeDisplayed={2}
+                          // onPageChange={this.handlePageClick}
+                          // containerClassName={"pagination"}
+                          // subContainerClassName={"pages pagination"}
+                          // activeClassName={"active"} 
+              />
+            </div> */}
       </Container>
     )
   }

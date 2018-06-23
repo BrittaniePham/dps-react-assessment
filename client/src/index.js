@@ -19,7 +19,10 @@ injectGlobal`
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <App 
+        // url={'http://localhost:3000/beers'}
+        // perPage={10}
+      />
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

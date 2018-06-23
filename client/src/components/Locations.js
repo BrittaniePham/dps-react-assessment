@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
+import { Container, Header, Card, Button } from 'semantic-ui-react';
 
 class Locations extends React.Component {
   state = { locations: { entries: [] } }
