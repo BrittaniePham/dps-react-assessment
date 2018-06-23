@@ -9,7 +9,6 @@ class Breweries extends React.Component {
     axios.get('/api/all_breweries')
       .then( res => {
         this.setState({ breweries: res.data }) 
-        console.log(res)
       })
   }
 

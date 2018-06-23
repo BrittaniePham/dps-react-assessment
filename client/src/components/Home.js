@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Header, Segment, Divider, Grid, Image } from 'semantic-ui-react';
 import axios from 'axios';
+import { Link } from 'react-router-dom'
 
 class Home extends Component {
   state = { assignmentMarkdown: '' };
@@ -25,23 +26,19 @@ class Home extends Component {
         <Grid>
           <Grid.Column computer={8} tablet={8} mobile={16}>
             <Segment inverted>
-              <Header
-                as='h1'
-                textAlign='center'
+              <Link to='/beers'
                 style={styles.header}>
                   Beers:
-              </Header>
+              </Link>
               <Divider />
             </Segment>
           </Grid.Column>
           <Grid.Column computer={8} tablet={8} mobile={16}>
             <Segment inverted>
-              <Header
-                as='h1'
-                textAlign='center'
-                style={styles.header}>
-                  Breweries:
-              </Header>
+            <Link to='/breweries'
+              style={styles.header}>
+                Breweries:
+            </Link>
               <Divider />
             </Segment>
           </Grid.Column>
@@ -60,7 +57,7 @@ const styles = {
     margin: '0 auto',
   },
   header: {
-    color: '#2ecc40'
+    color: '#2ecc40',
   }
 }
 
