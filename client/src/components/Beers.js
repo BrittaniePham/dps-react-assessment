@@ -1,12 +1,13 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
+// import ReactPaginate from 'react-paginate';
 
 class Beers extends React.Component {
   state = { beers: { entries: [] } }
 
   componentDidMount() {
-    axios.get('/api/all_beers')
+    axios.get('/api/all_beers?page=1&per_page=10')
       .then( res => {
         this.setState({ beers: res.data }) 
       })
