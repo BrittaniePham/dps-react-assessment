@@ -31,9 +31,9 @@ class Locations extends React.Component {
                 <Card.Content>
                   {location.locality}, {location.region} {location.postal_code}
                 </Card.Content>
-                <Button>
-                  View Location
-                </Button>
+                <Card.Content extra>
+                  {location.website}
+                </Card.Content>
               </Card>
             ) }
           </Card.Group>
