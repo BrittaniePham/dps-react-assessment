@@ -2,6 +2,21 @@ import React from 'react';
 import axios from 'axios';
 import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
 
+const BreweryImage = (brewery) => {
+
+  if (typeof(brewery.images) != "undefined") {
+    return(
+      <Image src={brewery.images.medium} />
+    )
+    // console.log("worked!")
+  }else {
+    return(
+      <Image src='https://rafver.is/wp-content/uploads/2016/05/no-image.jpg' />
+    )
+    // console.log("no error but undefined!")
+  }
+}
+
 class Breweries extends React.Component {
   state = { breweries: { entries: [] } }
 
@@ -11,6 +26,7 @@ class Breweries extends React.Component {
         this.setState({ breweries: res.data }) 
       })
   }
+
 
   render() {
     const { entries } = this.state.breweries;
@@ -24,7 +40,8 @@ class Breweries extends React.Component {
                 <Card.Content>
                   {brewery.name}
                 </Card.Content>
-                <Image src={brewery.images} />
+                { BreweryImage(brewery) }
+                {/* <Image src={brewery.images.icon} /> */}
                 <Card.Content>
                   {brewery.description}
                 </Card.Content>
