@@ -2,6 +2,8 @@ import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Container, Header, Card, Image } from 'semantic-ui-react';
+import { ButtonLink } from '../styles/commonStyles'
+
 // import ReactPaginate from 'react-paginate';
 
 class Beers extends React.Component {
@@ -22,19 +24,26 @@ class Beers extends React.Component {
         <Header as="h1" textAlign="center">Beers</Header>
           <Card.Group itemsPerRow={3}>
             { entries.map( beer =>
-              <Card key={beer.id}>
+              <Card raised key={beer.id}>
                 <Card.Content>
-                  {beer.name}
+                  <Card.Header>
+                    {beer.name}
+                  </Card.Header>
+                  <Card.Description>
+                    {beer.description}
+                  </Card.Description>
+                  {/* <Button>
+                    View Beer
+                  </Button> */}
                 </Card.Content>
-                <Card.Content>
-                  {beer.description}
+                <Card.Content extra>
+                  <ButtonLink 
+                    href={`/beer/${beer.name}`}
+                    rel="noopener norefferer"
+                  >
+                    View Beer
+                  </ButtonLink>
                 </Card.Content>
-                {/* <Button>
-                  View Beer
-                </Button> */}
-                <Link to={`/beer/${beer.name}`}>
-                  View Beer
-                </Link>
               </Card>
             ) }
           </Card.Group>

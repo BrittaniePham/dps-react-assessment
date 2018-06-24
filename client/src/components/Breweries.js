@@ -1,10 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
+import { ButtonLink } from '../styles/commonStyles'
 
 const BreweryImage = (brewery) => {
 
-  if (typeof(brewery.images) != "undefined") {
+  if (typeof(brewery.images) !== "undefined") {
     return(
       <Image src={brewery.images.medium} />
     )
@@ -36,18 +37,26 @@ class Breweries extends React.Component {
         <Header as="h1" textAlign="center">Breweries</Header>
           <Card.Group itemsPerRow={3}>
             { entries.map( brewery =>
-              <Card key={brewery.id}>
+              <Card raised key={brewery.id}>
                 <Card.Content>
-                  {brewery.name}
+                  <Card.Header>
+                    {brewery.name}
+                  </Card.Header>
+                  { BreweryImage(brewery) }
+                  {/* <Image src={brewery.images.icon} /> */}
+                  <Card.Description>
+                    {brewery.description}
+                  </Card.Description>
                 </Card.Content>
-                { BreweryImage(brewery) }
-                {/* <Image src={brewery.images.icon} /> */}
-                <Card.Content>
-                  {brewery.description}
-                </Card.Content>
-                <Button>
+                <Card.Content extra>
+                <ButtonLink 
+                  href={`/brewery/${brewery.name}`}
+                  // target="_blank"
+                  rel="noopener norefferer"
+                >
                   View Brewery
-                </Button>
+                </ButtonLink>
+                </Card.Content>
               </Card>
             ) }
           </Card.Group>
