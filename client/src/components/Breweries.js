@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Container, Header, Card, Image, Button } from 'semantic-ui-react';
+import { Container, Header, Card, Image } from 'semantic-ui-react';
 import { ButtonLink } from '../styles/commonStyles'
 
 const BreweryImage = (brewery) => {

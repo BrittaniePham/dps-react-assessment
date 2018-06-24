@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { Container, Header, Card, Image } from 'semantic-ui-react';
 import { ButtonLink } from '../styles/commonStyles'
 
